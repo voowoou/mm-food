@@ -73,7 +73,7 @@
             "snack",
             "drink"
         ],
-        "macroMicroNutrients": [
+        "nutrients": [
             "carbohydrates",
             "protein",
             "fat",

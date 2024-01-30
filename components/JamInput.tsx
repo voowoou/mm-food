@@ -43,7 +43,7 @@ const JamInput: FC = () => {
                 </div>
             </div>
             <div className="filters">
-                <div>
+                <div className="heading">
                     <button></button>
                     <h2>CHORDS</h2>
                     <p>
@@ -67,7 +67,7 @@ const JamInput: FC = () => {
                 </div>
             </div>
             <div className="filters">
-                <div>
+                <div className="heading">
                     <button></button>
                     <h2>GENRE</h2>
                     <p>The type of the meal</p>
@@ -88,7 +88,7 @@ const JamInput: FC = () => {
                 </div>
             </div>
             <div className="filters">
-                <div>
+                <div className="heading">
                     <button></button>
                     <h2>TEMPO</h2>
                     <p>
@@ -103,7 +103,7 @@ const JamInput: FC = () => {
                 </div>
             </div>
             <div className="filters">
-                <div>
+                <div className="heading">
                     <button></button>
                     <h2>NOTES</h2>
                     <p>
@@ -115,7 +115,7 @@ const JamInput: FC = () => {
                     <h3>macro and micro nutrients</h3>
                     <input type="text" name="nutrients" />
                     <div>
-                        {apiconfig.filters.macroMicroNutrients.map(nutrient => (
+                        {apiconfig.filters.nutrients.map(nutrient => (
                             <div key={nutrient}>
                                 <input
                                     type="text"
