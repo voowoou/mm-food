@@ -4,10 +4,9 @@ import {
     SetCuisinesAction,
     SetDietsAction,
     SetIntolerancesAction,
-    SetTypeAction,
+    SetTypesAction,
     SetCaloriesAction,
     SetNutrientsAction,
-    SetInstructionsAction,
 } from '../actions/inputActions';
 
 // Типизация стейта инпута
@@ -15,10 +14,9 @@ interface inputState {
     cuisines: string[];
     diets: string[];
     intolerances: string[];
-    type: string[];
+    types: string[];
     calories: (string | number)[];
     nutrients: (string | number)[];
-    instructions: boolean;
 }
 
 // Стейт с данными из инпута
@@ -26,10 +24,9 @@ const initialState: inputState = {
     cuisines: [],
     diets: [],
     intolerances: [],
-    type: [],
+    types: [],
     calories: [],
     nutrients: [],
-    instructions: true,
 };
 
 // Типизация для экшена в виде объеденения всех интерфейсов экшенов
@@ -37,10 +34,9 @@ type Action =
     | SetCuisinesAction
     | SetDietsAction
     | SetIntolerancesAction
-    | SetTypeAction
+    | SetTypesAction
     | SetCaloriesAction
-    | SetNutrientsAction
-    | SetInstructionsAction;
+    | SetNutrientsAction;
 
 // Редюсер для инпута
 const inputReducer = (state = initialState, action: Action): inputState => {
@@ -60,10 +56,10 @@ const inputReducer = (state = initialState, action: Action): inputState => {
                 ...state,
                 intolerances: action.payload,
             };
-        case ActionTypes.SET_TYPE:
+        case ActionTypes.SET_TYPES:
             return {
                 ...state,
-                type: action.payload,
+                types: action.payload,
             };
         case ActionTypes.SET_CALORIES:
             return {
@@ -74,11 +70,6 @@ const inputReducer = (state = initialState, action: Action): inputState => {
             return {
                 ...state,
                 nutrients: action.payload,
-            };
-        case ActionTypes.SET_INSTRUCTIONS:
-            return {
-                ...state,
-                instructions: action.payload,
             };
         default:
             return state;

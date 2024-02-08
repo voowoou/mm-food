@@ -3,10 +3,9 @@ export enum ActionTypes {
     SET_CUISINES = 'SET_CUISINES',
     SET_DIETS = 'SET_DIETS',
     SET_INTOLERANCES = 'SET_INTOLERANCES',
-    SET_TYPE = 'SET_TYPE',
+    SET_TYPES = 'SET_TYPES',
     SET_CALORIES = 'SET_CALORIES',
     SET_NUTRIENTS = 'SET_NUTRIENTS',
-    SET_INSTRUCTIONS = 'SET_INSTRUCTIONS',
 }
 
 // Интерфейсы для экшенов
@@ -25,8 +24,8 @@ export interface SetIntolerancesAction {
     payload: string[];
 }
 
-export interface SetTypeAction {
-    type: ActionTypes.SET_TYPE;
+export interface SetTypesAction {
+    type: ActionTypes.SET_TYPES;
     payload: string[];
 }
 
@@ -38,11 +37,6 @@ export interface SetCaloriesAction {
 export interface SetNutrientsAction {
     type: ActionTypes.SET_NUTRIENTS;
     payload: (string | number)[];
-}
-
-export interface SetInstructionsAction {
-    type: ActionTypes.SET_INSTRUCTIONS;
-    payload: boolean;
 }
 
 // Создатели экшенов
@@ -67,7 +61,7 @@ export function setIntolerances(intolerances: string[]): SetIntolerancesAction {
     };
 }
 
-export function setType(type: string[]): SetTypeAction {
+export function setType(type: string[]): SetTypesAction {
     return {
         type: ActionTypes.SET_TYPE,
         payload: type,
@@ -85,12 +79,5 @@ export function setNutrients(nutrients: (string | number)[]): SetNutrientsAction
     return {
         type: ActionTypes.SET_NUTRIENTS,
         payload: nutrients,
-    };
-}
-
-export function setInstructions(instructions: boolean): SetInstructionsAction {
-    return {
-        type: ActionTypes.SET_INSTRUCTIONS,
-        payload: instructions,
     };
 }
