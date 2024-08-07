@@ -1,0 +1,42 @@
+.card
+    margin: 4rem auto
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    width: 60vw
+    border: 10px solid #333
+    padding: 4rem 5.5rem
+    text-decoration: none
+    color: #333
+    transition: all 0.25s ease-in-out
+    h2
+        text-align: center
+        font-family: var(--font-hanken-grotesk)
+        font-size: 6rem
+        margin-bottom: 2rem
+    p
+        text-align: center
+        font-family: var(--font-inter)
+        font-size: 1.5rem
+    &:hover
+        width: 100%
+        padding: 4rem 10rem
+        color: #FFFF26
+        border-color: #FFFF26
+        text-shadow: 1px 1px 1.5px #333
+    &:nth-child(1)
+        &:hover
+            background: url("../../public/anime.gif") no-repeat center/cover
+    &:nth-child(2)
+        &:hover
+            background: url("../../public/arnold.gif") no-repeat center/cover
+    &:nth-child(3)
+        &:hover
+            background: url("../../public/mfdoom.gif") no-repeat center/cover
+    &:nth-child(4)
+        &:hover
+            background: url("../../public/gosling.gif") no-repeat center/cover
+
+        
+        

@@ -1,13 +1,13 @@
 import GithubIcon from '../../public/github.svg';
 import TelegramIcon from '../../public/telegram.svg';
-import style from './Footer.module.sass';
+import styles from './Footer.module.sass';
 
 export default function Footer() {
   return (
-    <footer className={style.container}>
-      <div className={style.leftBlock}>
+    <footer className={styles.container}>
+      <div className={styles.leftBlock}>
         <span>thank you for visiting</span>
-        <div className={style.socialMedia}>
+        <div className={styles.socialMedia}>
           <a href="https://github.com/voowoou" target="_blank">
             <GithubIcon />
           </a>
@@ -16,14 +16,14 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <p className={style.rightBlock}>
+      <p className={styles.rightBlock}>
         powered by{' '}
-        <a href="https://spoonacular.com/food-api" target="_blank" className={style.link}>
+        <a href="https://spoonacular.com/food-api" target="_blank" className={styles.link}>
           Spoonacular Food API
         </a>{' '}
         and
         <br />
-        <a href="https://spoonacular.com/food-api" target="_blank" className={style.link}>
+        <a href="https://spoonacular.com/food-api" target="_blank" className={styles.link}>
           Google Programmable Search Engine
         </a>
       </p>
