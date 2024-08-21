@@ -1,4 +1,7 @@
+'use client';
+
 import { Field } from 'formik';
+import { useState } from 'react';
 import styles from './Filter.module.sass';
 
 interface Props {
@@ -11,17 +14,28 @@ interface Props {
 }
 
 export default function Filter({ filter }: Props) {
+  const [searchText, setSearchText] = useState('');
+
+  const filteredOptions = filter.options.filter(option =>
+    option.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
   return (
     <div className={styles.filter}>
       <div>
         <span className={styles.minus}></span>
         <h4>{filter.name}</h4>
       </div>
-      <input type="search" placeholder={`Search by options`} />
+      <input
+        type="search"
+        placeholder={`Search by options`}
+        value={searchText}
+        onChange={e => setSearchText(e.target.value)}
+      />
       <div className={styles.options}>
         {filter.checkboxes
           ? // Если фильтр предполагает выбор опций через кнопки, то рендерятся чекбоксы
-            filter.options.map(option => (
+            filteredOptions.map(option => (
               <div key={option}>
                 <label>
                   <Field type="checkbox" name={`${filter.id}`} value={option} />
@@ -30,7 +44,7 @@ export default function Filter({ filter }: Props) {
               </div>
             ))
           : // Если фильтр предполагает ввод min/max нутриентов, то рендерятся числовые поля
-            filter.options.map(option => (
+            filteredOptions.map(option => (
               <div key={option}>
                 <Field type="number" placeholder="min" name={`${filter.id}.${option}.min`} />
                 <label>{option}</label>
