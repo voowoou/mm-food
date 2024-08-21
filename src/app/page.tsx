@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.sass';
 
 export default function HomePage() {
@@ -13,7 +14,7 @@ export default function HomePage() {
           </p>
         </div>
       </a>
-      <a href="" className={styles.card}>
+      <Link href="/jam-session" className={styles.card}>
         <h2>JAM SESSION</h2>
         <div>
           <p>
@@ -21,7 +22,7 @@ export default function HomePage() {
             cuisine, nutrition, intolerances, etc.
           </p>
         </div>
-      </a>
+      </Link>
       <a href="" className={styles.card}>
         <h2>À LA ALBUM</h2>
         <div>

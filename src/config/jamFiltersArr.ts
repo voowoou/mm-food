@@ -1,18 +1,16 @@
-interface Filter {
-  filterName: string;
-  checkboxes: boolean;
-  filterOptions: string[];
+interface FilterType {
+  id: string; // Идентификатор, который используется для key в .map и в начальном состоянии формы
+  name: string; // Имя фильтра для UI
+  checkboxes: boolean; // Является ли фильтр массивом для рендера чекбоксов
+  options: string[]; // Опции, представленные в фильтре
 }
 
-interface JamFilters {
-  [key: string]: Filter;
-}
-
-const jamFilters: JamFilters = {
-  cuisines: {
-    filterName: 'CUISINE(s)',
+export const jamFiltersArr: FilterType[] = [
+  {
+    id: 'cuisine',
+    name: 'CUISINE(s)',
     checkboxes: true,
-    filterOptions: [
+    options: [
       'african',
       'asian',
       'american',
@@ -31,7 +29,7 @@ const jamFilters: JamFilters = {
       'japanese',
       'jewish',
       'korean',
-      'latin American',
+      'latin american',
       'mediterranean',
       'mexican',
       'middle Eastern',
@@ -42,10 +40,11 @@ const jamFilters: JamFilters = {
       'vietnamese',
     ],
   },
-  diets: {
-    filterName: 'DIET(s)',
+  {
+    id: 'diet',
+    name: 'DIET(s)',
     checkboxes: true,
-    filterOptions: [
+    options: [
       'gluten free',
       'ketogenic',
       'vegetatian',
@@ -58,10 +57,11 @@ const jamFilters: JamFilters = {
       'whole30',
     ],
   },
-  intolerances: {
-    filterName: 'INTOLERANCE(s)',
+  {
+    id: 'intolerances',
+    name: 'INTOLERANCE(s)',
     checkboxes: true,
-    filterOptions: [
+    options: [
       'dairy',
       'egg',
       'gluten',
@@ -77,10 +77,11 @@ const jamFilters: JamFilters = {
       'wheat',
     ],
   },
-  'meal type': {
-    filterName: 'MEAL TYPE',
+  {
+    id: 'type',
+    name: 'MEAL TYPE',
     checkboxes: true,
-    filterOptions: [
+    options: [
       'main',
       'course',
       'side dish',
@@ -98,10 +99,11 @@ const jamFilters: JamFilters = {
       'drink',
     ],
   },
-  nutrients: {
-    filterName: 'NUTRIENT(s) (per 100g)',
+  {
+    id: 'nutrients',
+    name: 'NUTRIENT(s) (per 100g)',
     checkboxes: false,
-    filterOptions: [
+    options: [
       'calories',
       'carbs',
       'protein',
@@ -139,4 +141,4 @@ const jamFilters: JamFilters = {
       'zinc',
     ],
   },
-};
+];

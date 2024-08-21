@@ -1,30 +1,40 @@
+import { Field } from 'formik';
+import styles from './Filter.module.sass';
+
 interface Props {
-  filterName: string;
-  checkboxes: boolean;
-  filterOptions: string[];
+  filter: {
+    id: string; // Идентификатор, который используется для key в .map и в начальном состоянии формы
+    name: string; // Имя фильтра для UI
+    checkboxes: boolean; // Является ли фильтр массивом для рендера чекбоксов
+    options: string[]; // Опции, представленные в фильтре
+  };
 }
 
-export default function Filter({ filterName, checkboxes, filterOptions }: Props) {
+export default function Filter({ filter }: Props) {
   return (
-    <div>
+    <div className={styles.filter}>
       <div>
-        <span></span>
-        <h4>{filterName}</h4>
+        <span className={styles.minus}></span>
+        <h4>{filter.name}</h4>
       </div>
-      <input type="search" placeholder={`Search by {filterName}`}></input>
-      <div>
-        {checkboxes
-          ? filterOptions.map(option => (
+      <input type="search" placeholder={`Search by options`} />
+      <div className={styles.options}>
+        {filter.checkboxes
+          ? // Если фильтр предполагает выбор опций через кнопки, то рендерятся чекбоксы
+            filter.options.map(option => (
               <div key={option}>
-                <input type="checkbox" />
-                <label>{option}</label>
+                <label>
+                  <Field type="checkbox" name={`${filter.id}`} value={option} />
+                  {option}
+                </label>
               </div>
             ))
-          : filterOptions.map(option => (
+          : // Если фильтр предполагает ввод min/max нутриентов, то рендерятся числовые поля
+            filter.options.map(option => (
               <div key={option}>
-                <input type="number" placeholder="0" />
+                <Field type="number" placeholder="min" name={`${filter.id}.${option}.min`} />
                 <label>{option}</label>
-                <input type="number" placeholder="0" />
+                <Field type="number" placeholder="max" name={`${filter.id}.${option}.max`} />
               </div>
             ))}
       </div>
